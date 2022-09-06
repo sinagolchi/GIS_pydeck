@@ -8,7 +8,7 @@ with st.sidebar:
     lat = st.number_input(label='Initial lat',value=33.97042155783605)
     long = st.number_input(label='Initial long',value=-118.427226572252)
     zoom = st.number_input(label='Initial zoom',value=14)
-    hex = st.color_picker(label="polygon color")
+    hex = st.color_picker(label="polygon color",value='#ec42f5')
     RGB = list(ImageColor.getcolor(hex, "RGB"))
     title = st.text_input(label='Title',value='Scenario 1')
     cost = st.number_input(label='Total Cost', value=10000)
