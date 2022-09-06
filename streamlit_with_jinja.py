@@ -10,12 +10,16 @@ with st.sidebar:
     zoom = st.number_input(label='Initial zoom',value=14)
     hex = st.color_picker(label="polygon color",value='#ec42f5')
     RGB = list(ImageColor.getcolor(hex, "RGB"))
-    title = st.text_input(label='Title',value='Scenario 1')
-    cost = st.number_input(label='Total Cost', value=10000)
+    #title = st.text_input(label='Title',value='Scenario 1')
+    #cost = st.number_input(label='Total Cost', value=10000)
+    deck = st.selectbox(label='Scenario',options=[1,2])
 
+dict_file = {1:'test_map_jinja.html',2:'polygon.html'}
+dict_name = {1:'Scenario 1: Cut down version',2:'Scenario 2: Full buildings'}
+dict_cost = {1: 10000,2:'A lot!! :|'}
 environment = Environment(loader=FileSystemLoader("Templates/"))
-template = environment.get_template("test_map_jinja.html")
-description = "<div class=\"deck-json-description-box\" style=\"position: absolute; top: 0px; left: 0px; padding: 1px 12px; overflow: hidden overlay; outline: none; max-height: 94%; box-sizing: border-box; border-bottom-right-radius: 30px; background-color: rgba(0, 255, 255, 0.3); font-family: &quot;Fira Sans&quot;, sans-serif; z-index: 1;\"><div><h2>{title}</h2> <h3>Total Cost: ${cost}</h3></div></div>".format(title=title,cost=cost)
+template = environment.get_template(dict_file[deck])
+description = "<div class=\"deck-json-description-box\" style=\"position: absolute; top: 0px; left: 0px; padding: 1px 12px; overflow: hidden overlay; outline: none; max-height: 94%; box-sizing: border-box; border-radius: 10px; background-color: rgba(0, 120, 255, 0.3); font-family: &quot;Fira Sans&quot;, sans-serif; z-index: 1;\"><div><h2>{title}</h2> <h3>Total Cost: ${cost}</h3></div></div>".format(title=dict_name[deck],cost=dict_cost[deck])
 
 #description = "\"<h2>{title}</h2> </br> <h3>Total Cost: ${cost}</h3>\"".format(title=title,cost=cost)
 
