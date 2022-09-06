@@ -1,9 +1,6 @@
-import requests_html
 import streamlit as st
-import jinja2
 import streamlit.components.v1 as components
 from PIL import ImageColor
-import requests_html
 from jinja2 import Environment, FileSystemLoader
 st.set_page_config(layout="wide")
 st.title("Responsive PyDeck Editing")
